@@ -1,4 +1,4 @@
-use examples;
+use examples; // Using a database to create and operate the queries //
 -- Creating Customer table --
 
 CREATE TABLE customers (
