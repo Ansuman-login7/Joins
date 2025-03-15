@@ -82,30 +82,30 @@ INSERT INTO order_items VALUES
 -- Find Customers with their orders--
 -- Basically Inner Join--
 
-SELECT c.customer_name, o.order_id, o.order_date, round(o.total_amount,0) as order_amount
+SELECT c.customer_name, o.order_id, o.order_date, o.total_amount
 FROM customers c
 INNER JOIN orders o ON c.customer_id = o.customer_id;
 
 -- Find all the customers with their orders(including the ones didn't order)--
 -- Left Join --
 
-SELECT c.customer_name, o.order_id, round(o.total_amount,0) as order_amount
+SELECT c.customer_name, o.order_id, o.total_amount
 FROM customers c
 LEFT JOIN orders o ON c.customer_id = o.customer_id;
 
 -- Find the customers with their orders(including the orders having no customer)--
 -- Right Join --
-SELECT c.customer_name, o.order_id, round(o.total_amount,0) as order_amount
+SELECT c.customer_name, o.order_id, o.total_amount
 FROM customers c
 RIGHT JOIN orders o ON c.customer_id = o.customer_id;
 
 -- Find All customers and orders even if their is no match--
 -- Full Join--
-SELECT c.customer_name, o.order_id, round(o.total_amount,0) as order_amount
+SELECT c.customer_name, o.order_id, o.total_amount
 FROM customers c
 LEFT JOIN orders o ON c.customer_id = o.customer_id
 union
-SELECT c.customer_name, o.order_id, round(o.total_amount,0) as order_amount
+SELECT c.customer_name, o.order_id, o.total_amount
 FROM customers c
 RIGHT JOIN orders o ON c.customer_id = o.customer_id;
 
